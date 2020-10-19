@@ -37,4 +37,4 @@ before_script:
 script: 
   - echo ${CUDA_HOME}
   - export CUDA_HOME=${CUDA_HOME}
-  - make OPT=-DCUDA LIB=${CUDA_HOME}
+  - make -s
