@@ -4,7 +4,7 @@
 
 override OPT =  -DCUDA
 override LIB = /opt/nvidia/cudatoolkit/default
-CUDA_HOME=LIB
+
 #--------------------------------------- Turn off Intensity  normalization
 #OPT += -DNO_I_NORM
 
