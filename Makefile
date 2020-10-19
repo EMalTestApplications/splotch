@@ -58,7 +58,7 @@ SYSTYPE="generic"
 
 # Set compiler executables to commonly used names, may be altered below!
 
-$(info $$CUDA_HOME is [${CUDA_HOME}])
+$(info CUDA_HOME is $(CUDA_HOME))
 
  
 ifeq (USE_MPI,$(findstring USE_MPI,$(OPT)))
