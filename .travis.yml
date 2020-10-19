@@ -34,4 +34,4 @@ before_script:
     #- cd build
     #- cmake ..
 
-script: make target OPT=-DCUDA LIB=${CUDA_HOME}
+script: make OPT=-DCUDA LIB=${CUDA_HOME}
