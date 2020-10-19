@@ -7,7 +7,6 @@ override LIB = /opt/nvidia/cudatoolkit/default
 
 override CDBG +=
 CFLAGS += $(CDBG)
-
 #--------------------------------------- Turn off Intensity  normalization
 #OPT += -DNO_I_NORM
 
