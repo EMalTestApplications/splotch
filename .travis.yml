@@ -37,4 +37,4 @@ before_script:
 script: 
   - echo ${CUDA_HOME}
   - export CUDA_HOME=${CUDA_HOME}
-  - make -s
+  - make -s CDBG=-w
