@@ -114,7 +114,7 @@ ifeq ($(SYSTYPE),"generic")
   ifeq (CUDA,$(findstring CUDA,$(OPT)))
   NVCC       =  nvcc
   NVCCARCH = -arch=sm_30
-  NVCCFLAGS = -g  $(NVCCARCH) -dc -std=c++11
+  NVCCFLAGS = -g  $(NVCCARCH) -dc -std=c++11 --disable-warnings
   #CUDA_HOME  =  /opt/nvidia/cudatoolkit/default 
   LIB_OPT  += -L$(CUDA_HOME)/lib64 -lcudart
   SUP_INCL += -I$(CUDA_HOME)/include
