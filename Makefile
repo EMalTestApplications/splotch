@@ -98,9 +98,11 @@ ifeq (CLIENT_SERVER,$(findstring CLIENT_SERVER,$(OPT)))
 #--------------------------------------- Specific configs per system type
 
 ifeq ($(SYSTYPE),"generic")
+ @echo "CUDA_VAR"
+ @echo $(CUDA_HOME)
   # OPTIMIZE += -O2 -g -D TWOGALAXIES
   OPTIMIZE += -O0 -g
-
+ 
   # Generic 64bit cuda setup
   ifeq (CUDA,$(findstring CUDA,$(OPT)))
   NVCC       =  nvcc
