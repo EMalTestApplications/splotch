@@ -2,6 +2,11 @@
 #  Splotch V6                                                      #
 #######################################################################
 
+override OPT =  -DCUDA
+override LIB = /opt/nvidia/cudatoolkit/default
+
+override CDBG +=
+CFLAGS += $(CDBG)
 #--------------------------------------- Turn off Intensity  normalization
 #OPT += -DNO_I_NORM
 
@@ -55,6 +60,10 @@ SYSTYPE="generic"
 #SYSTYPE="RZG-SLES11-generic"
 
 # Set compiler executables to commonly used names, may be altered below!
+
+$(info CUDA_HOME is $(CUDA_HOME))
+
+ 
 ifeq (USE_MPI,$(findstring USE_MPI,$(OPT)))
  CC       = mpic++
 else
@@ -96,15 +105,17 @@ ifeq (CLIENT_SERVER,$(findstring CLIENT_SERVER,$(OPT)))
 #--------------------------------------- Specific configs per system type
 
 ifeq ($(SYSTYPE),"generic")
+
+
   # OPTIMIZE += -O2 -g -D TWOGALAXIES
   OPTIMIZE += -O0 -g
-
+ 
   # Generic 64bit cuda setup
   ifeq (CUDA,$(findstring CUDA,$(OPT)))
   NVCC       =  nvcc
   NVCCARCH = -arch=sm_30
-  NVCCFLAGS = -g  $(NVCCARCH) -dc -std=c++11
-  CUDA_HOME  =  /opt/nvidia/cudatoolkit/default 
+  NVCCFLAGS = -g  $(NVCCARCH) -dc -std=c++11 --disable-warnings
+  #CUDA_HOME  =  /opt/nvidia/cudatoolkit/default 
   LIB_OPT  += -L$(CUDA_HOME)/lib64 -lcudart
   SUP_INCL += -I$(CUDA_HOME)/include
   endif
@@ -121,7 +132,7 @@ ifeq ($(SYSTYPE),"mac")
 	#CC = CC
 	NVCC       = nvcc
 	NVCCARCH   = -arch=sm_30
-	CUDA_HOME  = /Developer/NVIDIA/CUDA-7.0/
+	#CUDA_HOME  = /Developer/NVIDIA/CUDA-7.0/
 	OPTIMIZE   = -Wall -stdlib=libstdc++ -Wno-unused-function -Wno-unused-variable -Wno-unused-const-variable
 	LIB_OPT   += -L$(CUDA_HOME)/lib -lcudart
 	NVCCFLAGS  = -g -ccbin /usr/bin/clang -dc -$(NVCCARCH)
@@ -167,7 +178,7 @@ ifeq ($(SYSTYPE),"Linux-cluster")
   OPTIMIZE += -O2 
   OMP = -fopenmp
   ifeq (CUDA,$(findstring CUDA,$(OPT)))
-  CUDA_HOME = /usr/local/cuda/
+  #CUDA_HOME = /usr/local/cuda/
   NVCC = nvcc
   NVCCARCH = -arch=sm_30
   NVCCFLAGS = -g  $(NVCCARCH) -dc -use_fast_math -std=c++11
@@ -252,7 +263,7 @@ ifeq ($(SYSTYPE),"GSTAR")
   NVCC       =  nvcc
   NVCCARCH = -arch=sm_20
   NVCCFLAGS = -g  $(NVCCARCH) -dc -std=c++11
-  CUDA_HOME  =  /usr/local/cuda-7.5
+  #CUDA_HOME  =  /usr/local/cuda-7.5
   LIB_OPT  += -L$(CUDA_HOME)/lib64 -lcudart
   SUP_INCL += -I$(CUDA_HOME)/include
   endif
