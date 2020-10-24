@@ -1,6 +1,6 @@
+sudo: required
 language: cpp
 
-sudo: required
 
 compiler:
   - gcc
@@ -17,7 +17,7 @@ matrix:
 
 before_install:
     #- sudo apt-get purge nvidia-*
-    #- sudo add-apt-repository ppa:graphics-drivers/ppa
+    - sudo add-apt-repository ppa:graphics-drivers/ppa
     #- sudo apt-get update
     #- sudo apt install nvidia-driver-415
 
