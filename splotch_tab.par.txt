@@ -1,0 +1,94 @@
+############################
+# Input Options
+############################
+infile=tab_100M.dat     # input file name
+swap_endian=false       # true only if endianism of the machine you are using is different from that data was generated
+
+# 0,1: plain binary file, 0=tab, 1=blocks , 2: Gadget2, 3: Enzo 5: MPI2
+simtype=0               # tabular file
+
+# Additinal flags for bin_reader_mpi
+num_blocks=6            # total number of columns in the file
+x=1                     # columns of x coordinate (starting from 1)
+y=2
+z=3
+r=5                     # column of smoothing length (if -1, constant "smooth_factor" is used)
+I=-1                    # column of intensity field (if -1 a constant factor of 0.5 is used, to change this act on the "brightness0" parameter below 
+C1=4                    # column of the quantity to color particles (if lookup table is used - R color otherwise)
+C2=-1                   # column of G color (if -1, lookup table is used)
+C3=-1                   # column of B color (if -1, lookup table is used)
+#smooth_factor=1.0
+brightness0=100           # set "experimentally" this to change the brightness of the points
+
+############################
+# Output Options
+############################
+pictype=0
+outfile=test100-        # image filename
+xres=1024               # image resolution
+yres=1024
+colorbar=TRUE           # colorbar is added to the image
+
+############################
+# Vizualization properties
+############################
+# internal pararameter, don't change them
+boostcolors=FALSE
+a_eq_e=TRUE
+# 0: nosort, 1: by z, 2: by value, 3: by reversed value, 4: by size 
+sort_type=0
+
+intensity_log0=FALSE    # use log of intensity
+intensity_min0=0.0      # intensity range (default min-max)
+intensity_max0=1.0
+color_log0=TRUE         # use log of the color
+#color_min0=-2.0        # color range (default min-max)
+#color_max0=2.0
+
+palette0= /your-path-to-palettes/OldSplotch.pal   # palette file - examples given in the palettes directory
+
+############################
+# Geometrical setup
+############################
+#enables projection
+projection = TRUE
+
+# this is only if you want to create an animation (multiple images)
+#
+#scene_file=path.txt
+#scene_start=0
+#scene_incr=1
+#
+# 
+# this is to set the point of view for a single image
+# note THIS CAN BE TRICKY!!! if you don't set these parameters properly tou get a black image!
+#
+# position of the point of view in your simulation units
+# in this example particles coordinates were in kpc, in the range [0-120000] each direction
+# so the camera is placed "behind" the cube along x direction
+#
+camera_x=  -300000.0
+camera_y=  600000.0
+camera_z=  600000.0
+#
+# this is the point camera is looking at (center of the box, in the example)
+#
+lookat_x=  600000.0
+lookat_y=  600000.0
+lookat_z=  600000.0
+#
+# this is the orientation of the camera
+# in this case the "ceiling" is in the positive z direction
+#
+sky_x=0
+sky_y=0
+sky_z=1
+
+#
+# this is the field of view (degrees)
+#
+fov=30
+
+# this is a possible cutoff along the line of sight
+#zmin=5000.0
+#zmax=7000.0

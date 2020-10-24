@@ -1,0 +1,152 @@
+############################
+# Input Options
+############################
+
+infile=uni_
+#fidx=000
+#rth=2.0
+
+
+# 0,1: plain binary file, 2: Gadget2, 3: Enzo, 4: millenium, 5: mpiio,
+# 6: mesh reader, 7: hdf7
+simtype=2
+
+# Additional flags for Gadget
+#numfiles=1024
+#readparallel=8
+#swap_endian=TRUE
+ptypes=5
+ptype0=0
+ptype1=1
+ptype2=2
+ptype3=4
+ptype4=5
+
+size_fix0=0
+size_label0=HSM0
+size_present0=1
+size_fac0=2.0
+intensity_label0=INT0
+intensity_present0=1
+intensity_log0=FALSE
+#intensity_min0=-3
+#intensity_max0=0
+color_label0=COL0
+color_present0=1
+color_is_vector0=TRUE
+color_log0=FALSE
+
+size_fix1=0
+size_label1=HSM1
+size_present1=2
+size_fac1=0.5
+intensity_label1=INT1
+intensity_present1=2
+intensity_log1=FALSE
+#intensity_min1=-3
+#intensity_max1=0
+color_label1=COL1
+color_present1=2
+color_is_vector1=TRUE
+color_log1=TRUE
+
+size_fix2=0
+size_label2=HSM2
+size_present2=4
+size_fac2=0.5
+intensity_label2=INT2
+intensity_present2=2
+intensity_log2=FALSE
+#intensity_min2=-2
+#intensity_max2=2
+color_label2=COL2
+color_present2=4
+color_is_vector2=TRUE
+color_log2=TRUE
+#color_max1=150
+
+size_fix3=0
+size_label3=HSM4
+size_present3=16
+size_fac3=1.0
+intensity_label3=INT4
+intensity_present3=16
+intensity_log3=FALSE
+#intensity_min3=-2
+#intensity_max3=2
+color_label3=COL4
+color_present3=16
+color_is_vector3=TRUE
+
+size_fix4=0
+size_label4=HSM5
+size_present4=32
+size_fac4=2.0
+intensity_label4=INT5
+intensity_present4=32
+intensity_log4=FALSE
+#intensity_min4=-2
+#intensity_max4=2
+color_label4=COL5
+color_present4=32
+color_is_vector4=TRUE
+
+
+####brightness0=0.0
+#brightness0=1.2
+brightness0=1.2
+brightness1=20
+brightness2=10
+brightness3=5
+brightness4=4
+boost=FALSE
+
+
+############################
+# Output Options
+############################
+
+# 0: TGA uncompressed, 1: PPM ASCII, 2: PPM binary, 3: TGA runlength-compressed
+pictype=0
+outfile=uni
+xres=1920
+yres=1080
+
+gray_absorption=0.001
+colorbar=false
+
+############################
+# Visualization properties
+############################
+a_eq_e=false
+#projection=false
+
+# 0: nosort, 1: by z, 2: by value, 3: by reversed value, 4: by size
+sort_type=1
+palette4=palettes/OldSplotch.pal
+minrad_pix = 0
+
+
+############################
+# Geometrical setup
+############################
+camera_x= 3557.94
+camera_y= -2043.05
+camera_z= -1300
+lookat_x= 3557.94
+lookat_y= -2043.05
+lookat_z= -1848.52
+sky_x=0
+sky_y=-1
+sky_z=0
+
+
+#scene_file=path.txt
+scene_file=spline.txt
+scene_start=1
+#scene_start=1
+scene_incr=1
+
+EyeSeparation=1.2
+
+fov=45
