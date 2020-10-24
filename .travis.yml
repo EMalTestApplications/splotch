@@ -35,6 +35,7 @@ before_install:
 
 
 before_script:
+    - sudo nvidia-smi
     - echo ${CUDA_HOME}
     - export CUDA_HOME=${CUDA_HOME}
     - make -w CDBG=-w
