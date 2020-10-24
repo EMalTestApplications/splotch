@@ -35,4 +35,4 @@ before_script:
     - make -w CDBG=-w
 
 script:
-  - ./Splotch5-generic splotch_tab.par
+  - ./Splotch6-generic splotch_tab.par
