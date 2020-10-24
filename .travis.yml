@@ -1,6 +1,6 @@
 language: cpp
 
-sudo: enabled
+sudo: required
 
 compiler:
   - gcc
