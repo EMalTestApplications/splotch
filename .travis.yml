@@ -43,7 +43,7 @@ before_script:
   - if [ $CUDA != "NONE" ]; then
       export CUDA_HOME=${CUDA_HOME};
     fi
-   - make -w CDBG=-w
+  - make -w CDBG=-w
 
 
 script:
