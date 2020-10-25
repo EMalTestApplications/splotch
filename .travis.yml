@@ -39,12 +39,12 @@ before_install:
   #- install mpich
 
 before_script:
-   - if  [ $CUDA != "NONE" ]; then export CUDA_HOME=${CUDA_HOME}        
-     else echo "MPICH building without cuda"
+
+   - if  [ $CUDA != "NONE" ]; then export CUDA_HOME=${CUDA_HOME};    
+     else echo "MPICH building without cuda";
      fi
    -  make -w CDBG=-w
 
 
 script:
-  - if [ $CUDA != "NONE" ]; then ./Splotch6-generic splotch_tab.par
-    fi
+  - if [ $CUDA != "NONE" ]; then ./Splotch6-generic splotch_tab.par; fi
