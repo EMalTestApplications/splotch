@@ -24,10 +24,10 @@ matrix:
       - UBUNTU_VERSION=ubuntu1804
       dist: bionic
 
-  - name: MPICH
-    env:
-    - CUDA=NONE
-    dist: bionic
+    - name: MPICH
+      env:
+      - CUDA=NONE
+      dist: bionic
 
 before_install:
     #- sudo apt-get purge nvidia-*
