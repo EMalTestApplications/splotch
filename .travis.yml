@@ -54,7 +54,7 @@ before_install:
   #- install mpich
 
 before_script:
-  - echo ${CUDA_HOME}
+  #- echo ${CUDA_HOME}
   - export CUDA_HOME=${CUDA_HOME}
   - make -w CDBG=-w
 
