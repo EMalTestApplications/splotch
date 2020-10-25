@@ -37,7 +37,7 @@ CFLAGS += $(CDBG)
 #--------------------------------------- MPI support for A!=E
 #OPT += -DMPI_A_NEQ_E
 
-#--------------------------------------- Independent absorption 
+#--------------------------------------- Independent absorption
 #OPT += -DINDEPENDENT_A
 
 #--------------------------------------- Client server model
@@ -62,8 +62,8 @@ SYSTYPE="generic"
 # Set compiler executables to commonly used names, may be altered below!
 
 $(info CUDA_HOME is $(CUDA_HOME))
+$(info MPICH_HOME is $(MPICH_HOME))
 
- 
 ifeq (USE_MPI,$(findstring USE_MPI,$(OPT)))
  CC       = mpic++
 else
@@ -79,15 +79,15 @@ SUP_INCL = -I. -Icxxsupport -Ic_utils -Ivectorclass
 OPTIMIZE = -Ofast -std=c++11 -pedantic -Wno-long-long -Wfatal-errors           \
            -Wextra -Wall -Wstrict-aliasing=2 -Wundef -Wshadow -Wwrite-strings  \
            -Wredundant-decls -Woverloaded-virtual -Wcast-qual -Wcast-align     \
-           -Wpointer-arith -march=native 
+           -Wpointer-arith -march=native
 
-# MPIIO library 
+# MPIIO library
 ifeq (USE_MPIIO,$(findstring USE_MPIIO,$(OPT)))
  SUP_INCL += -Impiio-1.0/include/
  LIB_MPIIO = -Lmpiio-1.0/lib -lpartition
 endif
 
-# Default paths for client-server dependencies 
+# Default paths for client-server dependencies
 ifeq (CLIENT_SERVER,$(findstring CLIENT_SERVER,$(OPT)))
     # LibWebsockets
     LWS_PATH = server/dep/LibWebsockets
@@ -109,13 +109,13 @@ ifeq ($(SYSTYPE),"generic")
 
   # OPTIMIZE += -O2 -g -D TWOGALAXIES
   OPTIMIZE += -O0 -g
- 
+
   # Generic 64bit cuda setup
   ifeq (CUDA,$(findstring CUDA,$(OPT)))
   NVCC       =  nvcc
   NVCCARCH = -arch=sm_30
   NVCCFLAGS = -g  $(NVCCARCH) -dc -std=c++11 --disable-warnings
-  #CUDA_HOME  =  /opt/nvidia/cudatoolkit/default 
+  #CUDA_HOME  =  /opt/nvidia/cudatoolkit/default
   LIB_OPT  += -L$(CUDA_HOME)/lib64 -lcudart
   SUP_INCL += -I$(CUDA_HOME)/include
   endif
@@ -147,7 +147,7 @@ ifeq ($(SYSTYPE),"mac")
 	CLANG_PATH = /Users/tims/Programs/clang+llvm-3.9.0-x86_64-apple-darwin/bin/
 	OMP_RUNTIME_PATH = /Users/tims/Programs/Intel-OMP-RT/libomp_oss/exports/mac_32e/lib.thin/
 	CC = $(CLANG_PATH)/clang++
-	OPTIMIZE = -O3 -Wall -std=c++11 -D__apple_build_version__ 
+	OPTIMIZE = -O3 -Wall -std=c++11 -D__apple_build_version__
 	OMP = -fopenmp=libiomp5
 	LIB_OPT += -L$(OMP_RUNTIME_PATH)
   endif
@@ -175,7 +175,7 @@ ifeq ($(SYSTYPE),"Linux-cluster")
   else
    CC  = g++
   endif
-  OPTIMIZE += -O2 
+  OPTIMIZE += -O2
   OMP = -fopenmp
   ifeq (CUDA,$(findstring CUDA,$(OPT)))
   #CUDA_HOME = /usr/local/cuda/
@@ -229,10 +229,10 @@ ifeq ($(SYSTYPE), "tiger")
 endif
 
 # Configuration for an XC30 with cray toolchain
-ifeq ($(SYSTYPE), "XC30-CCE") 
+ifeq ($(SYSTYPE), "XC30-CCE")
   CC = CC
   OMP =
-  OPTIMIZE =-h std=c++11 -hnomessage=12489 
+  OPTIMIZE =-h std=c++11 -hnomessage=12489
   ifeq (CUDA, $(findstring CUDA, $(OPT)))
   CUDATOOLKIT_HOME=/opt/nvidia/cudatoolkit/default
   NVCC = nvcc
@@ -245,7 +245,7 @@ ifeq ($(SYSTYPE), "XC30-CCE")
   HDF5_HOME = /opt/cray/hdf5-parallel/1.8.13/gnu/48/
   LIB_HDF5  = -L$(HDF5_HOME)lib -Wl,-rpath,$(HDF5_HOME)/lib -lhdf5 -lz
   HDF5_INCL = -I$(HDF5_HOME)include
-  endif 
+  endif
 endif
 
 ifeq ($(SYSTYPE),"GSTAR")
@@ -320,7 +320,7 @@ ifeq ($(SYSTYPE),"RZG-SLES11-generic")
   OMP       = -fopenmp
 endif
 
-#--------------------------------------- Debug override 
+#--------------------------------------- Debug override
 
 # Override all optimization settings for debug build
 ifeq ($(DEBUG), 1)
@@ -392,7 +392,7 @@ LIB_OPT += -L$(LIBTURBOJPEG_PATH)/install/lib -lturbojpeg                \
 SUP_INCL += -I$(LWS_PATH)/include -I$(LIBTURBOJPEG_PATH)                  \
             -I$(RAPIDJSON_PATH) -I$(WSRTI_PATH)/websocketplus/include     \
             -I$(WSRTI_PATH)/tjpp/include -I$(WSRTI_PATH)/syncqueue        \
-            -I$(WSRTI_PATH)/serializer/include 
+            -I$(WSRTI_PATH)/serializer/include
 endif
 
 INCL   = */*.h Makefile
@@ -439,4 +439,3 @@ cleangalaxy:
 
 realclean: clean
 	rm -f $(EXEC)
-
