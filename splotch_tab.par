@@ -45,7 +45,7 @@ color_log0=TRUE         # use log of the color
 #color_min0=-2.0        # color range (default min-max)
 #color_max0=2.0
 
-#palette0= /your-path-to-palettes/OldSplotch.pal   # palette file - examples given in the palettes directory
+palette0= ./palettes/OldSplotch.pal   # palette file - examples given in the palettes directory
 
 ############################
 # Geometrical setup
