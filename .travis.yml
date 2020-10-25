@@ -41,7 +41,6 @@ before_install:
 before_script:
 
    - if  [ $CUDA != "NONE" ]; then export CUDA_HOME=${CUDA_HOME};    
-     else echo "MPICH building without cuda";
      fi
    -  make -w CDBG=-w
 
