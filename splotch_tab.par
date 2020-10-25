@@ -1,7 +1,7 @@
 ############################
 # Input Options
 ############################
-infile=tab_100M.dat     # input file name
+infile=tab_100M.txt     # input file name
 swap_endian=false       # true only if endianism of the machine you are using is different from that data was generated
 
 # 0,1: plain binary file, 0=tab, 1=blocks , 2: Gadget2, 3: Enzo 5: MPI2
@@ -13,7 +13,7 @@ x=1                     # columns of x coordinate (starting from 1)
 y=2
 z=3
 r=5                     # column of smoothing length (if -1, constant "smooth_factor" is used)
-I=-1                    # column of intensity field (if -1 a constant factor of 0.5 is used, to change this act on the "brightness0" parameter below 
+I=-1                    # column of intensity field (if -1 a constant factor of 0.5 is used, to change this act on the "brightness0" parameter below
 C1=4                    # column of the quantity to color particles (if lookup table is used - R color otherwise)
 C2=-1                   # column of G color (if -1, lookup table is used)
 C3=-1                   # column of B color (if -1, lookup table is used)
@@ -35,7 +35,7 @@ colorbar=TRUE           # colorbar is added to the image
 # internal pararameter, don't change them
 boostcolors=FALSE
 a_eq_e=TRUE
-# 0: nosort, 1: by z, 2: by value, 3: by reversed value, 4: by size 
+# 0: nosort, 1: by z, 2: by value, 3: by reversed value, 4: by size
 sort_type=0
 
 intensity_log0=FALSE    # use log of intensity
@@ -45,7 +45,7 @@ color_log0=TRUE         # use log of the color
 #color_min0=-2.0        # color range (default min-max)
 #color_max0=2.0
 
-palette0= /your-path-to-palettes/OldSplotch.pal   # palette file - examples given in the palettes directory
+#palette0= /your-path-to-palettes/OldSplotch.pal   # palette file - examples given in the palettes directory
 
 ############################
 # Geometrical setup
@@ -59,7 +59,7 @@ projection = TRUE
 #scene_start=0
 #scene_incr=1
 #
-# 
+#
 # this is to set the point of view for a single image
 # note THIS CAN BE TRICKY!!! if you don't set these parameters properly tou get a black image!
 #
