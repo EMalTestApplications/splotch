@@ -10,23 +10,29 @@ matrix:
       - CUDA=8.0.61-1
       - CUDA_SHORT=8.0
       - UBUNTU_VERSION=ubuntu1604
+      - USE_MPITCH =false
       dist: xenial
     - name: CUDA 9
       env:
       - CUDA=9.2.148-1
       - CUDA_SHORT=9.2
       - UBUNTU_VERSION=ubuntu1604
+      - USE_MPITCH =false
       dist: xenial
     - name: CUDA 10
       env:
       - CUDA=10.1.105-1
       - CUDA_SHORT=10.1
       - UBUNTU_VERSION=ubuntu1804
+      - USE_MPITCH =false
       dist: bionic
 
     - name: MPICH
       env:
-      - CUDA=NONE
+      - CUDA=10.1.105-1
+      - CUDA_SHORT=10.1
+      - UBUNTU_VERSION=ubuntu1804
+      - USE_MPITCH =true
       dist: bionic
 
 before_install:
@@ -48,7 +54,9 @@ before_install:
         - CUDA_HOME=/usr/local/cuda-${CUDA_SHORT}
         - LD_LIBRARY_PATH=${CUDA_HOME}/lib64:${LD_LIBRARY_PATH}
         - PATH=${CUDA_HOME}/bin:${PATH}
-
+        - if [$USE_MPITCH== "true"]; then
+            Echo "MPITCH download";
+          Fi
 
       
   #- install mpich
@@ -60,6 +68,6 @@ before_script:
 
 
 script:
-  - if [$CUDA!= "NONE"]; then
-      ./Splotch6-generic splotch_tab.par;
-    fi
+  #- if [$CUDA!= "NONE"]; then
+    -  ./Splotch6-generic splotch_tab.par
+  # fi
