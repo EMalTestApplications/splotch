@@ -56,7 +56,7 @@ before_install:
         - PATH=${CUDA_HOME}/bin:${PATH}
         - if [$USE_MPITCH== "true"]; then
             Echo "MPITCH download";
-          Fi
+          fi
 
       
   #- install mpich
