@@ -40,10 +40,11 @@ before_install:
 
 before_script:
 
-   - if  [ $CUDA != "NONE" ]; then export CUDA_HOME=${CUDA_HOME};    
-     fi
-   -  make -w CDBG=-w
+   - export CUDA_HOME=${CUDA_HOME}
+   - make -w CDBG=-w
 
 
 script:
-  - if [ $CUDA != "NONE" ]; then ./Splotch6-generic splotch_tab.par; fi
+  - if [ $CUDA != "NONE" ]; then 
+      ./Splotch6-generic splotch_tab.par;
+    fi
