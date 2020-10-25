@@ -45,6 +45,4 @@ before_script:
 
 
 script:
-  - if [ $CUDA != "NONE" ]; then 
-      ./Splotch6-generic splotch_tab.par;
-    fi
+  - ./Splotch6-generic splotch_tab.par 
