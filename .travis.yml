@@ -34,7 +34,7 @@ before_install:
     #- sudo add-apt-repository ppa:graphics-drivers/ppa
     #- sudo apt-get update
     #- sudo apt install nvidia-driver-415
-    - ./cuda_install.sh
+    #- ./cuda_install.sh
       
   #- install mpich
 
