@@ -57,7 +57,8 @@ before_install:
         - if [ "$USE_MPITCH" = "true" ]; then
             sh ./get_mpich.sh;
           fi
-        - MPICH_HOME=$(PWD)/mpich
+        - LOCAL_DIR=$(pwd)
+        - MPICH_HOME=${LOCAL_DIR}/mpich
 
 
   #- install mpich
