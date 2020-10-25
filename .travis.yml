@@ -64,10 +64,10 @@ before_install:
   #- install mpich
 
 before_script:
-  #- echo ${CUDA_HOME}
+  - echo ${MPICH_HOME}
   - export CUDA_HOME=${CUDA_HOME}
   - if [ "$USE_MPITCH" = "true" ]; then
-      export MPICH_HOME=${MPICH_HOME}
+      export MPICH_HOME=${MPICH_HOME};
     fi
 
   - make -w CDBG=-w
