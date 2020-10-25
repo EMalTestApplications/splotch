@@ -34,15 +34,19 @@ before_install:
     #- sudo add-apt-repository ppa:graphics-drivers/ppa
     #- sudo apt-get update
     #- sudo apt install nvidia-driver-415
+    - chmod +x ./cuda_install.sh
     - ./cuda_install.sh
       
   #- install mpich
 
 before_script:
-
-   - export CUDA_HOME=${CUDA_HOME}
+  - if [ $CUDA != "NONE" ]; then
+      export CUDA_HOME=${CUDA_HOME};
+    fi
    - make -w CDBG=-w
 
 
 script:
-  - ./Splotch6-generic splotch_tab.par 
+  - if [ $CUDA != "NONE" ]; then
+      ./Splotch6-generic splotch_tab.par;
+    fi
