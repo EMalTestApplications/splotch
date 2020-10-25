@@ -13,6 +13,6 @@ if [ $CUDA != "NONE" ]; then
         CUDA_HOME=/usr/local/cuda-${CUDA_SHORT}
         LD_LIBRARY_PATH=${CUDA_HOME}/lib64:${LD_LIBRARY_PATH}
         PATH=${CUDA_HOME}/bin:${PATH}
-      fi
+fi
 
 exit 0;
